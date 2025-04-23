@@ -1,0 +1,20 @@
+<div *ngIf="product" class="product-details-card">
+    <div *ngIf="product.productQuantity > 0">
+      <img [src]="product.productImage" alt="Product Image" class="product-details-image" />
+  
+      <div class="product-info">
+        <h1 class="product-details-title">{{ product.productTitle }}</h1>
+        <h3 class="product-details-price">{{ product.productPrice }} DH</h3>
+  
+        <p
+          [ngClass]="{
+            'quantity-high': product.productQuantity >= 10,
+            'quantity-low': product.productQuantity < 10
+          }"
+        >
+          {{ product.productQuantity }} in stock
+        </p>
+      </div>
+    </div>
+  </div>
+  
