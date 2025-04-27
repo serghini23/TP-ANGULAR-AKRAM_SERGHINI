@@ -1,26 +1,34 @@
 export class  Product {
-    private _productID : number;
+    private _productID : string;
     private _productTitle : string;
     private _productPrice : number;
     private _productImage : string;
     private _quantity: number;
+    private _category : string; // Default value
 
 
 
-    constructor(productID : number, productTitle : string, productPrice : number  , productImage : string , productQuantity : number ) {
+    constructor(productID : string, productTitle : string, productPrice : number  , productImage : string , productQuantity : number , category : string = "General" ) {
         this._productID = productID;
         this._productTitle = productTitle;
         this._productPrice = productPrice;
         this._productImage = productImage;  
         this._quantity = productQuantity;
-
+        this._category = category;
     }
 
-     public get productID() : number {
+     public get productID() : string {
         return this._productID;
     }
-     public set productID(value : number) {
+     public set productID(value : string) {
         this._productID = value;
+    }
+
+    public get category() : string {
+        return this._category;
+    }
+    public set category(value : string) {
+        this._category = value;
     }
 
     public get productTitle() : string {

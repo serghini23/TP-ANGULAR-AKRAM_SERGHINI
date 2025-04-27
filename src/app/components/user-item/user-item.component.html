@@ -1,0 +1,21 @@
+<div *ngIf="user" class="user-card">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Age</th>
+          <th>User Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.userType}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

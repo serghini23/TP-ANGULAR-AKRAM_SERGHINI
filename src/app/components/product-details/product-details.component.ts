@@ -15,15 +15,24 @@ export class ProductDetailsComponent {
   product : Product | undefined;
 
   constructor(
+    private router : Router,
     private route: ActivatedRoute, 
     private catalogService: CatalogService 
   ) { }
+     
+  redirectToCatalog() : void {
+    this.router.navigate(['/']); 
+  }
 
 
   ngOnInit() : void {
-    const productId = Number(this.route.snapshot.paramMap.get('id')); 
+    const productId = this.route.snapshot.paramMap.get('id'); 
     if (productId) {
-      this.product = this.catalogService.getProductById(productId); 
-    }}
+      this.catalogService.getProductById(productId).subscribe({
+        next: (data) => {this.product = data; console.log(data);
+        }
+      ,}); 
+    }
+  }
 
 }

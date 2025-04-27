@@ -1,0 +1,38 @@
+.user-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .user-table {
+    width: 400px;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 15px 20px;
+    text-align: left;
+  }
+  
+  .user-table th {
+    background-color: #007bff;
+    color: #fff;
+    width: 40%;
+  }
+  
+  .user-table td {
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .user-table tr:not(:last-child) td,
+  .user-table tr:not(:last-child) th {
+    border-bottom: 1px solid #eee;
+  }
+  

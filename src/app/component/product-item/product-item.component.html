@@ -1,10 +1,11 @@
 <div *ngIf="product" class="product-card">
       <img [src]="product.productImage" alt="Product image" class="product-image" />
       <h1 class="product-title">{{ product.productTitle }}</h1>
-      <h3 class="product-price">{{ product.productPrice }} DH</h3>
+      <h3 class="product-price">{{ product.productPrice }} </h3>
       <p [ngClass]="product.productQuantity >= 10 ? 'quantity-normal' : 'quantity-low'">
         {{ product.productQuantity }}
       </p>
       <button (click)="redirectToDetails()" class="details-button">Details</button>
+      
   </div>
   

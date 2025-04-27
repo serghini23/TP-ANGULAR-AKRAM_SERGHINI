@@ -1,27 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../../../models/Product';
+import { HttpClient } from '@angular/common/http';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatalogService {
 
-  constructor() { }
+  constructor(private http :HttpClient) { }
 
-  products : Product[] = [
-    new Product(1, "Iphone",  15460 , "assets/images/iphone.png",10),
-    new Product(2, " redmi", 5000 , "assets/images/s10e.png",0),
-    new Product(3, "Samsung", 9000 , "assets/images/s10e.png",6),
+  private apiUrl = 'http://localhost:3000/api/products';
 
-  ]
 
-  getProducts() : Product[] {
-    return this.products;
+  getProducts() : Observable<Product[]> {
+    return this.http.get<Product[]>(this.apiUrl);
   }
 
-  getProductById(id : number) : Product | undefined {
-    return this.products.find(product => product.productID === id);
+  getProductById(id : string) : Observable<Product> {
+    return this.http.get<Product[]>(`${this.apiUrl}/${id}`).pipe(
+      map(products => products[0]) 
+    );
   }
+  
 
 
 }
