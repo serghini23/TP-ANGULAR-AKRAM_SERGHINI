@@ -114,3 +114,51 @@ app.get("/api/cart", (req, res) => {
 // Start server
 const port = 3000;
 app.listen(port, () => console.log(`API Server listening on port ${port}`));
+// Simulated user data
+let users = [
+  {
+    userId: 1,
+    firstName: "Alice",
+    lastName: "Smith",
+    age: 30,
+    userType: "Admin",
+  },
+  {
+    userId: 2,
+    firstName: "Bob",
+    lastName: "Johnson",
+    age: 25,
+    userType: "Membre",
+  },
+  {
+    userId: 3,
+    firstName: "Charlie",
+    lastName: "Brown",
+    age: 22,
+    userType: "Guest",
+  },
+  {
+    userId: 4,
+    firstName: "Dina",
+    lastName: "White",
+    age: 29,
+    userType: "Admin",
+  },
+];
+
+// GET all users
+app.get("/api/users", (req, res) => {
+  res.send(users);
+});
+
+// GET a single user by ID
+app.get("/api/users/:id", (req, res) => {
+  const { id } = req.params;
+  const matchedUsers = users.filter(u => u.userId.toString() === id);
+
+  if (matchedUsers.length > 0) {
+    res.send(matchedUsers);
+  } else {
+    res.status(404).send({ message: "User not found" });
+  }
+});

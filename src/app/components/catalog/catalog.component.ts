@@ -18,9 +18,7 @@ export class CatalogComponent implements OnInit {
   ngOnInit(): void {
     this.catalogService.getProducts().subscribe({
       next: (data) => {
-        this.products = data.filter((product) => product.productQuantity > 0); 
-        console.log(data);
-        
+        this.products = data.filter((product) => product.productQuantity > 0);         
       },
       error: (error) => {
         console.error('Error fetching products:', error);
