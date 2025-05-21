@@ -1,9 +1,12 @@
 AKRAM SERGHINI
 TP PROJET SITE ECOMERCE ANGULAR 
-PAGE D AFFICHAGE LISTE DES PRODUITS : 
+PAGE D AFFICHAGE LISTE DES PRODUITS en francais : 
 
 
-![Capture d’écran 2025-04-23 194505](https://github.com/user-attachments/assets/5402c779-7b95-43e7-a4c6-93a2e699098b)
+![FR](https://github.com/user-attachments/assets/fc455c37-2224-40ba-834f-e88b606b2df8)
+  AGE D AFFICHAGE LISTE DES PRODUITS en anglais :
+  ![Capture d’écran 2025-05-21 221218](https://github.com/user-attachments/assets/f02586e3-3e88-4dd9-af95-8889407dfb1b)
 
 PAGE D AFFICHAGE LES DETAILS D UN PRODUIT : 
-![Capture d’écran 2025-04-23 194624](https://github.com/user-attachments/assets/23a155e3-0a85-40ed-bd62-7f31907b5722)
+
+![detaille produit](https://github.com/user-attachments/assets/4a32cedf-af88-49bc-b9fa-08028ff4f7c1)
