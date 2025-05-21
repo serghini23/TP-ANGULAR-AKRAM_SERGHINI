@@ -7,7 +7,7 @@ const PORT = 8085;
 const LOCALES = ['fr', 'en']; // ajoute toutes les langues ici
 
 LOCALES.forEach((locale) => {
-  const localePath = path.join(__dirname, 'dist/hospital-managment-system/browser', locale);
+  const localePath = path.join(__dirname, 'dist/angulartp/browser', locale);
 
   // Sert les fichiers statiques pour chaque langue
   app.use(`/${locale}`, express.static(localePath));

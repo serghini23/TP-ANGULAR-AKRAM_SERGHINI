@@ -15,5 +15,7 @@ export class NavbarComponent {
   redirectToCatalog() : void {
     this.router.navigate(['/']); 
   }
-
+redirectToLogin() : void {
+    this.router.navigate(['/login']); 
+  }
 }

@@ -19,7 +19,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "localize":["fr-CA"],
+            "localize":true,
             "outputPath": "dist/angulartp",
             "index": "src/index.html",
             "browser": "src/main.ts",

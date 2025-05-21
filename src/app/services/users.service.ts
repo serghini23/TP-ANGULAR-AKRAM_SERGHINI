@@ -14,5 +14,10 @@ constructor( private http:HttpClient) { }
     return this.http.get<User[]>(this.apiUrl);
   }
        
- 
+  signin(credentials:any): boolean {
+    if (credentials.email === 'admin@gmail.com' && credentials.password === 'admin') {
+      return true;
+    }
+    return false;
+  }
 }
