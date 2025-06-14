@@ -1,39 +1,43 @@
- /* Navbar Style */
+/* Navbar Style assorti au formulaire clair */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #6adbe3;
-    padding: 1rem 2rem;
-    border-radius: 12px;
-    margin: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-  
-  .nav-links li  {
-    text-decoration: none;
-    font-size: 1rem;
-    color: #333;
-    padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .nav-links li:hover {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9; /* fond blanc cassé comme le form */
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* ombre très douce */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333; /* texte gris foncé */
+  user-select: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li {
+  font-size: 1rem;
+  color: #555; /* gris moyen */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease;
+  user-select: none;
+}
+
+.nav-links li:hover {
+  background-color: #007bff; /* bleu vif comme bouton */
+  color: white; /* texte blanc sur hover */
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}

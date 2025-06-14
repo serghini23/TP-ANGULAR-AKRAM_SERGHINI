@@ -1,3 +1,5 @@
+<body>
+  <div class="container">
 <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
   <input type="text" name="firstName" [(ngModel)]="form.firstName" placeholder="Prénom" required />
   <input type="text" name="lastName" [(ngModel)]="form.lastName" placeholder="Nom" required />
@@ -9,6 +11,7 @@
     <option value="Admin">Admin</option>
   </select>
   <input type="text" name="address" [(ngModel)]="form.address" placeholder="Adresse" />
-
   <button type="submit">S'inscrire</button>
 </form>
+  </div>
+  </body>

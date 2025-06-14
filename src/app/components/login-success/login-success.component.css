@@ -1,13 +1,24 @@
 .success-page {
   text-align: center;
   margin-top: 100px;
+  color: #111827; /* dark text for light background */
+  font-size: 20px;
+  font-weight: 600;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
+.success-page button {
+  padding: 12px 28px;
+  background-color: #3b82f6; /* a nice blue */
   border: none;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  min-width: 140px;
+}
+
+.success-page button:hover {
+  background-color: #2563eb; /* darker blue on hover */
 }

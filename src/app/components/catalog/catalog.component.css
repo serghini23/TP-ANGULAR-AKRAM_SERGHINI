@@ -1,10 +1,39 @@
 ul {
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1743151982700-b43e30bd0537?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  padding: 20px;
+  list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  justify-content: space-between;
-  flex-direction: row;
-  list-style: none;
   gap: 20px;
+  color: white;
+  overflow: hidden;
 }
 
+ul::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* overlay sombre */
+  border-radius: 12px;
+  z-index: 0; /* bien en dessous */
+}
 
+ul > li {
+  position: relative;
+  z-index: 1; /* au-dessus de l’overlay */
+  background-color: #fff; /* blanc opaque pour ne pas être sombre */
+  color: #111;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+ul > li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
