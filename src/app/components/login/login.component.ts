@@ -22,7 +22,9 @@ export class LoginComponent {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
-
+signup(){
+  this.router.navigate(['/register']);
+}
 signIn() {
   if (!this.validateEmail(this.credentials.email)) {
     this.message = '❌ Email invalide';

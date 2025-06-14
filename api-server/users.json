@@ -1,0 +1,34 @@
+[
+  {
+    "userId": 1,
+    "firstName": "Alice",
+    "lastName": "Smith",
+    "email": "alice@mail.com",
+    "password": "alice123",
+    "userType": "Admin"
+  },
+  {
+    "userId": 2,
+    "firstName": "akram",
+    "lastName": "serghini",
+    "email": "akram@mail.com",
+    "password": "akram123",
+    "userType": "Membre"
+  },
+  {
+    "userId": 3,
+    "firstName": "Soukaina",
+    "lastName": "Bensaid",
+    "email": "soukaina@mail.com",
+    "password": "soukaina",
+    "userType": "Guest"
+  },
+  {
+    "userId": 4,
+    "firstName": "othman",
+    "lastName": "oussefar",
+    "email": "othman@mail.fr",
+    "password": "000000",
+    "userType": "Admin"
+  }
+]

@@ -1,47 +1,51 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const cors = require('cors');
-const path = require('path');
+const cors = require("cors");
+const path = require("path");
+const fs = require("fs");
 
 const PORT = 3000;
+const USERS_FILE = "./users.json";
+
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-//users
-let users = [
-  {
-    userId: 1,
-    firstName: "Alice",
-    lastName: "Smith",
-    email: "alice@mail.com",
-    password: "alice123", // ⚠️ mot de passe en clair juste pour l'exemple
-    userType: "Admin",
-  },
-  {
-    userId: 2,
-    firstName: "Bob",
-    lastName: "Johnson",
-    email: "bob@mail.com",
-    password: "bob123",
-    userType: "Membre",
-  },
-  {
-    userId: 3,
-    firstName: "Charlie",
-    lastName: "Brown",
-    email: "charlie@mail.com",
-    password: "charlie123",
-    userType: "Guest",
-  },
-];
-//simulator login
+
+// Charger les utilisateurs depuis le fichier
+let users = [];
+if (fs.existsSync(USERS_FILE)) {
+  users = JSON.parse(fs.readFileSync(USERS_FILE));
+}
+
+// Fonction pour sauvegarder les utilisateurs
+function saveUsersToFile() {
+  fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
+}
+
+// ----------- USERS API -----------
+
+app.post('/api/users/register', (req, res) => {
+  const { firstName, lastName, email, password, userType } = req.body;
+  const existingUser = users.find(u => u.email === email);
+  if (existingUser) {
+    return res.status(400).send({ message: "L'utilisateur existe déjà." });
+  }
+  const newUser = {
+    userId: users.length + 1,
+    firstName,
+    lastName,
+    email,
+    password,
+    userType: userType || "Client"
+  };
+  users.push(newUser);
+  saveUsersToFile();
+  res.status(201).send({ message: "Inscription réussie", user: newUser });
+});
+
 app.post('/api/users/login', (req, res) => {
   const { email, password } = req.body;
-
-  const user = users.find(
-    u => u.email === email && u.password === password
-  );
-
+  const user = users.find(u => u.email === email && u.password === password);
   if (user) {
     const { password, ...userWithoutPassword } = user;
     res.send({ message: "Login success", user: userWithoutPassword });
@@ -50,8 +54,28 @@ app.post('/api/users/login', (req, res) => {
   }
 });
 
+app.get('/api/users/profile/:id', (req, res) => {
+  const userId = parseInt(req.params.id);
+  const user = users.find(u => u.userId === userId);
+  if (!user) {
+    return res.status(404).send({ message: "Utilisateur introuvable" });
+  }
+  const { password, ...profile } = user;
+  res.send(profile);
+});
 
-let cart = [];
+app.put('/api/users/update/:id', (req, res) => {
+  const userId = parseInt(req.params.id);
+  const index = users.findIndex(u => u.userId === userId);
+  if (index === -1) {
+    return res.status(404).send({ message: "Utilisateur introuvable" });
+  }
+  users[index] = { ...users[index], ...req.body };
+  saveUsersToFile();
+  res.send({ message: "Profil mis à jour", user: users[index] });
+});
+
+// ----------- PRODUCTS API -----------
 
 const products = [
   {
@@ -128,16 +152,13 @@ const products = [
   },
 ];
 
-// GET all products
 app.get("/api/products", (req, res) => {
   res.send(products);
 });
 
-// GET a single product by ID
 app.get("/api/products/:id", (req, res) => {
   const { id } = req.params;
   const matchedProducts = products.filter(p => p.productID === id);
-
   if (matchedProducts.length > 0) {
     res.send(matchedProducts);
   } else {
@@ -145,39 +166,35 @@ app.get("/api/products/:id", (req, res) => {
   }
 });
 
-// POST to cart (replace the entire cart)
+// ----------- CART API -----------
+
+let cart = [];
+
 app.post("/api/cart", (req, res) => {
   cart = req.body;
   setTimeout(() => res.status(201).send(), 20);
 });
 
-// GET current cart
 app.get("/api/cart", (req, res) => {
   res.send(cart);
 });
 
+// ----------- LOCALIZATION -----------
 
-
-// List of supported locales
 const locales = ['fr-CA', 'en-US'];
-
-// Serve static files and handle Angular routing
 locales.forEach((locale) => {
   const localePath = path.join(__dirname, 'dist/angulartp/browser', locale);
-
-  // Serve static assets
   app.use(`/${locale}`, express.static(localePath));
-
-  // Angular routing fallback
   app.get(`/${locale}/*`, (req, res) => {
     res.sendFile(path.join(localePath, 'index.html'));
   });
 });
 
-// Optional: redirect root to a default language
 app.get('/', (req, res) => {
   res.redirect('/fr-CA');
 });
+
+// ----------- START SERVER -----------
 
 app.listen(PORT, () => {
   console.log(`🌍 App localisée disponible sur :`);
