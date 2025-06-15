@@ -3,6 +3,8 @@
   <ul class="nav-links">
     <li (click)="redirectToCatalog()"i18n>Products</li>
     <li (click)="redirectToUsers()" i18n>Users</li>
-    <li (click)="redirectToLogin()">Login</li>
+    <li *ngIf="!authService.isLoggedIn()" (click)="redirectToLogin()" i18n>Login</li>
+    <li *ngIf="authService.isLoggedIn()" (click)="logout()" i18n>Logout</li>
   </ul>
+  
 </nav>

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 import { FormsModule } from '@angular/forms';
+import { AutheService } from '../../services/authe.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent {
   signInError: boolean = false;
   message: string = '';
 
-  constructor(private userService: UsersService, private router: Router) { }
+  constructor(private userService: UsersService, private router: Router , private authService : AutheService) { }
 
  validateEmail(email: string): boolean {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -33,14 +34,15 @@ signIn() {
 
   this.userService.signin(this.credentials.email, this.credentials.password).subscribe({
     next: (res: any) => {
-       localStorage.setItem('user', JSON.stringify(res.user));
+      this.authService.login(res.user); 
       this.message = '✅ Login réussi : ' + res.user.firstName;
-     this.router.navigate(['/login-success']);
+      this.router.navigate(['/login-success']);
     },
     error: () => {
       this.message = '❌ Email ou mot de passe incorrect';
     }
   });
 }
+
 
 }

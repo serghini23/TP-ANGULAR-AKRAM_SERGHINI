@@ -4,8 +4,7 @@
      -{{ product?.discountPercent }}%
      
   </div>
-  <div class="alert" *ngIf="product?.hasOffer">
-     ⚠️
+  <div class="alert" *ngIf="product?.hasOffer">⚠️
   </div>
 
   <img [src]="product?.productImage" alt="{{ product?.productTitle }}" />

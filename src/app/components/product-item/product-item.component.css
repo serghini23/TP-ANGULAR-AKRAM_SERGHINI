@@ -1,11 +1,11 @@
 .product-card {
-  position: relative; /* badge needs this */
+  position: relative; 
   background-color: #fff;
   border-radius: 18px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  max-width: 320px;
+  max-width: 400px;
   padding: 32px;
-  margin: 20px auto; /* add some vertical margin */
+  margin: 20px auto; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   box-sizing: border-box;
@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  overflow: hidden; /* prevent inner overflow */
+  overflow: hidden; 
 }
 
 .discount-badge {
@@ -26,14 +26,11 @@
   padding: 6px 10px;
   border-radius: 8px;
   font-size: 0.9rem;
-  z-index: 10; /* ensure above everything */
-  pointer-events: none; /* so badge doesn't block clicks */
-}
-
-/* Product image */
+  z-index: 10; 
+  pointer-events: none; }
 .product-card img {
   width: 100%;
-  height: 220px;
+  height: 225px;
   object-fit: cover;
   border-radius: 16px;
   margin-bottom: 18px;
@@ -45,7 +42,6 @@
   transform: scale(1.05);
 }
 
-/* Title */
 .product-title {
   font-size: 1.4rem;
   color: #222222;
@@ -54,7 +50,6 @@
   letter-spacing: 0.03em;
 }
 
-/* Price section: stacked vertically */
 .price-section {
   display: flex;
   flex-direction: column;
@@ -62,7 +57,6 @@
   margin-bottom: 14px;
 }
 
-/* Original price with line-through */
 .original-price {
   font-size: 1rem;
   color: #aaa;
@@ -70,14 +64,12 @@
   margin-bottom: 4px;
 }
 
-/* Current price */
 .current-price {
   font-size: 1.2rem;
   color: #27ae60;
   font-weight: 700;
 }
 
-/* Details button at the bottom */
 .details-button {
   background-color: #1d3557;
   color: #f1faee;
@@ -92,7 +84,7 @@
   align-self: center;
   box-shadow: 0 4px 12px rgba(29, 53, 87, 0.3);
   white-space: nowrap;
-  margin-top: auto; /* pushes the button to the bottom */
+  margin-top: auto; 
 }
 
 .details-button:hover {
@@ -103,11 +95,17 @@
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background-color: #f39c12; /* orange */
+  background-color: #f39c12; 
   color: white;
   padding: 6px 10px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 0.85rem;
   z-index: 3;
+}
+.alert{
+  top: 500px;
+  left: 20px;
+  padding: 4px 8px;
+  z-index: 5;
 }
