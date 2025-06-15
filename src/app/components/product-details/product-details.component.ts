@@ -21,7 +21,7 @@ export class ProductDetailsComponent {
   ) { }
      
   redirectToCatalog() : void {
-    this.router.navigate(['/']); 
+    this.router.navigate(['/catalogue']); 
   }
 
 

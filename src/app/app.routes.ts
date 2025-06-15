@@ -5,9 +5,11 @@ import { UsersListesComponent } from './components/users-listes/users-listes.com
 import { LoginComponent } from './components/login/login.component';
 import { LoginSuccessComponent } from './components/login-success/login-success.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-    {path: '', component: CatalogComponent},
+    {path: 'catalogue', component: CatalogComponent},
+    {path: '', component: HomeComponent},
     {path: 'details/:id', component: ProductDetailsComponent},
     {path: 'users', component:UsersListesComponent },
     {path: 'login', component: LoginComponent}, 

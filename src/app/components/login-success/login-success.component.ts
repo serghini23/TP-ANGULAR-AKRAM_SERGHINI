@@ -20,6 +20,6 @@ export class LoginSuccessComponent implements OnInit {
   }
 
   goToProducts() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/catalogue']);
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +13,7 @@ export class NavbarComponent {
     this.router.navigate(['users']); 
   }
   redirectToCatalog() : void {
-    this.router.navigate(['/']); 
+    this.router.navigate(['/catalogue']); 
   }
 redirectToLogin() : void {
     this.router.navigate(['/login']); 

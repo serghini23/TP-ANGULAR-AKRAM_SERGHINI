@@ -87,6 +87,60 @@ const products = [
     productQuantity: 20,
   },
   {
+    productID: "SQhetgEE",
+    productTitle: "Airpods Pro",
+    productImage: "assets/images/blackairpods.png",
+    category: "audio",
+    productPrice: "1500 DH",
+    productQuantity: 210,
+
+  },
+  {
+    productID: "SQhetggEE",
+    productTitle: "Airpods Pro",
+    productImage: "assets/images/white airpods.jpg",
+    category: "audio",
+    productPrice: "1345 DH",
+    productQuantity: 170,
+    
+  },
+  {
+    productID: "hetgZEE",
+    productTitle: "Airpods Pro",
+    productImage: "assets/images/blue_airpods.png",
+    category: "audio",
+    productPrice: "1500 DH",
+    productQuantity: 210,
+    
+  },
+  {
+    productID: "SQhe",
+    productTitle: "XBOX Series X",
+    productImage: "assets/images/SERIES-X.png",
+    category: "GAMING",
+    productPrice: "6500 DH",
+    productQuantity: 90,
+    
+  }
+,
+{
+    productID: "xbxons",
+    productTitle: "XBOX ONE S",
+    productImage: "assets/images/Xbox-one-s.png",
+    category: "GAMING",
+    productPrice: "1500 DH",
+    productQuantity:134,
+    
+  },
+  { productID: "PS",
+    productTitle: "PS5",
+    productImage: "assets/images/ps5.png",
+    category: "GAMING",
+    productPrice: "7500DH",
+    productQuantity:110,
+
+  },
+{
     productID: "EFRetyeRR",
     productTitle: "IPhone 14",
     productImage: "assets/images/iphone.png",

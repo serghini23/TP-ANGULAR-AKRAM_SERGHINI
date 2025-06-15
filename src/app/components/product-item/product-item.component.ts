@@ -20,5 +20,6 @@ export class ProductItemComponent {
     
     this.router.navigate(['/details', this.product?.productID]);
   }
+  
 
 }
