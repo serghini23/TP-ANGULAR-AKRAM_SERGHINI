@@ -11,15 +11,17 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class ProductItemComponent {
   @Input() product : Product |undefined 
+  
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+    
+  }
 
   redirectToDetails() : void {
     console.log(this.product?.productID);
     
     this.router.navigate(['/details', this.product?.productID]);
   }
-  
 
 }

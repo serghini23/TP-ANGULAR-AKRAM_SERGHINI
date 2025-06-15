@@ -1,11 +1,21 @@
-<div *ngIf="product" class="product-card">
-      <img [src]="product.productImage" alt="Product image" class="product-image" />
-      <h1 class="product-title">{{ product.productTitle }}</h1>
-      <h3 class="product-price">{{ product.productPrice }} </h3>
-      <p [ngClass]="product.productQuantity >= 10 ? 'quantity-normal' : 'quantity-low'">
-        {{ product.productQuantity }}
-      </p>
-      <button (click)="redirectToDetails()" class="details-button">Details</button>
-      
+<div class="product-card">
+ 
+  <div class="discount-badge" *ngIf="product?.hasOffer">
+     -{{ product?.discountPercent }}%
+     
   </div>
-  
+  <div class="alert" *ngIf="product?.hasOffer">
+     ⚠️
+  </div>
+
+  <img [src]="product?.productImage" alt="{{ product?.productTitle }}" />
+
+  <h3 class="product-title">{{ product?.productTitle }}</h3>
+
+  <div class="price-section">
+    <span class="original-price" *ngIf="product?.hasOffer">{{ product?.originalPrice }} DH</span>
+    <span class="current-price">{{ product?.productPrice }} DH</span>
+  </div>
+
+  <button class="details-button" (click)="redirectToDetails()">Details</button>
+</div>

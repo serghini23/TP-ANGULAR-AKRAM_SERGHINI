@@ -4,26 +4,51 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CatalogService {
-
-  constructor(private http :HttpClient) { }
-
   private apiUrl = 'http://localhost:3000/api/products';
 
+  constructor(private http: HttpClient) {}
 
-  getProducts() : Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
-  }
-
-  getProductById(id : string) : Observable<Product> {
-    return this.http.get<Product[]>(`${this.apiUrl}/${id}`).pipe(
-      map(products => products[0]) 
+  getProducts(): Observable<Product[]> {
+    return this.http.get<any[]>(this.apiUrl).pipe(
+      map((products) =>
+        products.map((p: any) => new Product(
+          p.productID,
+          p.productTitle,
+          this.parsePrice(p.productPrice),
+          p.productImage,
+          p.productQuantity,
+          p.category,
+          p.hasOffer,
+          p.discountPercent,
+          p.originalPrice ? this.parsePrice(p.originalPrice) : undefined
+        ))
+      )
     );
   }
-  
 
+  getProductById(id: string): Observable<Product> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`).pipe(
+      map(p => new Product(
+        p.productID,
+        p.productTitle,
+        this.parsePrice(p.productPrice),
+        p.productImage,
+        p.productQuantity,
+        p.category,
+        p.hasOffer,
+        p.discountPercent,
+        p.originalPrice ? this.parsePrice(p.originalPrice) : undefined
+      ))
+    );
+  }
 
+  private parsePrice(price: string | number): number {
+    if (typeof price === 'string') {
+      return parseInt(price.replace(/\D/g, ''), 10); // removes DH or spaces
+    }
+    return price;
+  }
 }
-// 

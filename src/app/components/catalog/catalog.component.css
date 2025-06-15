@@ -24,14 +24,14 @@ ul::before {
 
 ul > li {
   position: relative;
-  z-index: 1; /* au-dessus de l’overlay */
-  background-color: #fff; /* blanc opaque pour ne pas être sombre */
-  color: #111;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+  background-color: transparent;
+  padding: 0;          /* Remove padding */
+  border-radius: 0;    /* Remove border radius */
+  box-shadow: none;    /* Remove box-shadow */
+  transition: none;    /* Or keep if needed */
 }
+
 
 ul > li:hover {
   transform: translateY(-5px);
