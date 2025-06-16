@@ -40,7 +40,7 @@
         <span>{{ totalPrice | number:'1.2-2' }} MAD</span>
       </div>
       <button (click)="clearCart()" class="clear-cart-btn">Clear Cart</button>
-      <button class="checkout-btn">Proceed to Checkout</button>
+      <button class="checkout-btn" (click)="goToCheckout()">Proceed to Checkout</button>
     </div>
   </div>
 </div>

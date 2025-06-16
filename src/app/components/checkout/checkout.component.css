@@ -1,0 +1,67 @@
+/* Structure du tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fdfdfd;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 14px 18px;
+  text-align: center;
+  border-bottom: 1px solid #eaeaea;
+}
+
+th {
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: 600;
+}
+
+.low-stock {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+/* Total et messages */
+.total {
+  text-align: right;
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.error {
+  background-color: #ffeaea;
+  color: #d32f2f;
+  padding: 12px;
+  margin: 16px 0;
+  border-left: 4px solid #d32f2f;
+  border-radius: 6px;
+}
+
+/* Bouton */
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 16px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #45a049;
+}

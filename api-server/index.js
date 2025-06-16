@@ -257,6 +257,16 @@ app.get("/api/categories", (req, res) => {
   const categories = [...new Set(products.map(p => p.category))];
   res.send(categories);
 });
+app.post('/api/products/reduce-stock', (req, res) => {
+  const items = req.body; 
+
+  items.forEach(item => {
+   
+  });
+
+  res.status(200).send({ message: 'Stock updated successfully' });
+});
+
 
 // ----------- CART API -----------
 

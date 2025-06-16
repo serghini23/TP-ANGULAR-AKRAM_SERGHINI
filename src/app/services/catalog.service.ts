@@ -45,6 +45,11 @@ export class CatalogService {
     );
   }
 
+  reduceStock(items: Product[]): Observable<any> {
+  return this.http.post('http://localhost:3000/api/products/reduce-stock', items);
+}
+
+
   private parsePrice(price: string | number): number {
     if (typeof price === 'string') {
       return parseInt(price.replace(/\D/g, ''), 10); // removes DH or spaces

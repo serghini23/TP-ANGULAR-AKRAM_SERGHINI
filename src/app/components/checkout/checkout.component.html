@@ -1,0 +1,36 @@
+<div *ngIf="cartItems.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Requested Qty</th>
+        <th>Available Stock</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+        <td>{{ item.productTitle }}</td>
+        <td>{{ item.productQuantity }}</td>
+        <td [class.low-stock]="item.productQuantity > getStock(item.productID)">
+          {{ getStock(item.productID) }}
+        </td>
+        <td>{{ item.productPrice }} DH</td>
+        <td>{{ item.productPrice * item.productQuantity }} DH</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div>Total: {{ totalPrice }} DH</div>
+
+  <div *ngIf="hasStockIssues()" class="error">
+    Some items exceed available stock. Please adjust quantities.
+  </div>
+
+  <button (click)="proceedToCheckout()" [disabled]="hasStockIssues()">Confirm Purchase</button>
+</div>
+
+<div *ngIf="cartItems.length === 0">
+  Your cart is empty.
+</div>
