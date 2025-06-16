@@ -5,6 +5,9 @@
     <li (click)="redirectToUsers()" i18n>Users</li>
     <li *ngIf="!authService.isLoggedIn()" (click)="redirectToLogin()" i18n>Login</li>
     <li *ngIf="authService.isLoggedIn()" (click)="logout()" i18n>Logout</li>
+    <li class="cart-link" (click)="redirectToCart()">
+      Cart
+      <span *ngIf="cartItemCount > 0" class="cart-count">{{ cartItemCount }}</span></li>
   </ul>
   
 </nav>

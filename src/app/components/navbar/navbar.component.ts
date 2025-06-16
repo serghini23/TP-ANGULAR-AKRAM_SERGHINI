@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router} from '@angular/router';
 import { AutheService } from '../../services/authe.service';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  constructor(private router : Router , public authService: AutheService,) { }
+  constructor(private router : Router , public authService: AutheService, private cartService: CartService) { }
+  cartItemCount: number = 0;
+
+  ngOnInit(): void {
+    this.cartService.getCartItems().subscribe(items => {
+      this.cartItemCount = this.cartService.getTotalItems();
+    });
+  }
+
+
   redirectToUsers() : void {
     this.router.navigate(['users']); 
   }
@@ -23,5 +33,8 @@ redirectToLogin() : void {
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+  redirectToCart(): void {
+    this.router.navigate(['/cart']);
   }
 }
