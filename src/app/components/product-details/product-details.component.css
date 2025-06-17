@@ -12,7 +12,7 @@
     flex-direction: row;
     gap: 32px;
     align-items: flex-start;
-    flex-wrap: wrap; /* makes it responsive on smaller screens */
+    flex-wrap: wrap; 
   }
   
   .product-details-image {

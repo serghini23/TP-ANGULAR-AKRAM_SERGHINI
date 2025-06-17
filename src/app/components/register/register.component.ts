@@ -22,7 +22,6 @@ export class RegisterComponent {
   constructor(private http: HttpClient) {}
 
   onSubmit() {
-    // Vérifie que le userType est défini (tu peux aussi faire ça dans le formulaire)
     if (!this.form.userType) {
       alert('Veuillez sélectionner un rôle');
       return;
@@ -33,7 +32,6 @@ export class RegisterComponent {
         next: (response) => {
           console.log('Inscription réussie', response);
           alert('Inscription réussie !');
-          // Reset formulaire si tu veux
           this.form = {
             firstName: '',
             lastName: '',

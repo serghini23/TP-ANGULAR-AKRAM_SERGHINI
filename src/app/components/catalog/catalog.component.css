@@ -17,19 +17,19 @@ ul::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* overlay sombre */
+  background-color: rgba(0, 0, 0, 0.5); 
   border-radius: 12px;
-  z-index: 0; /* bien en dessous */
+  z-index: 0; 
 }
 
 ul > li {
   position: relative;
   z-index: 1;
   background-color: transparent;
-  padding: 0;          /* Remove padding */
-  border-radius: 0;    /* Remove border radius */
-  box-shadow: none;    /* Remove box-shadow */
-  transition: none;    /* Or keep if needed */
+  padding: 0;          
+  border-radius: 0;    
+  box-shadow: none;    
+  transition: none;    
 }
 
 

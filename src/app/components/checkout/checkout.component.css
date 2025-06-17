@@ -1,4 +1,3 @@
-/* Structure du tableau */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -26,7 +25,6 @@ th {
   font-weight: bold;
 }
 
-/* Total et messages */
 .total {
   text-align: right;
   margin-top: 16px;
@@ -44,7 +42,6 @@ th {
   border-radius: 6px;
 }
 
-/* Bouton */
 button {
   background-color: #4caf50;
   color: white;

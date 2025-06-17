@@ -52,16 +52,12 @@ this.stockMap[items[index].productID] = product ? product.productQuantity : 0;
 }
  proceedToCheckout(): void {
   if (this.checkStock()) {
-    // 🔽 1. Met à jour le stock via l'API
     this.apiService.reduceStock(this.cartItems).subscribe({
       next: () => {
-        // 🔽 2. Vide le panier
         this.cartService.clearCart();
 
-        // 🔽 3. Message de succès
         alert('Purchase confirmed and stock updated!');
 
-        // 🔽 4. Redirection vers une page de succès ou autre
         this.router.navigate(['/order-success']);
       },
       error: (err) => {

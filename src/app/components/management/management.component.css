@@ -1,16 +1,14 @@
-/* Container for the whole management page */
 .management-container {
   max-width: 900px;
   margin: 30px auto;
   padding: 20px;
-  background-color: #f9fafb; /* Very light gray */
+  background-color: #f9fafb; 
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
 }
 
-/* Each product item */
 .product-item {
   background: #fff;
   border-radius: 6px;
@@ -22,15 +20,13 @@
   justify-content: space-between;
 }
 
-/* Product title and price text */
 .product-info {
   font-size: 1rem;
   font-weight: 600;
 }
 
-/* Buttons */
 button {
-  background-color: #4a90e2; /* Light blue */
+  background-color: #4a90e2; 
   color: white;
   border: none;
   border-radius: 5px;
@@ -41,10 +37,8 @@ button {
 }
 
 button:hover {
-  background-color: #357ABD; /* Darker blue on hover */
-}
+  background-color: #357ABD; }
 
-/* Add product button container */
 .add-product-container {
   text-align: right;
   margin-top: 25px;

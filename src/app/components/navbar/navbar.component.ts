@@ -15,17 +15,19 @@ export class NavbarComponent {
   cartItemCount: number = 0;
     isAdmin = false;
 
+ngOnInit(): void {
+  this.authService.user$.subscribe(user => {
+    this.isAdmin = user?.userType === 'Admin';
+  });
 
-  ngOnInit(): void {
-        this.isAdmin = this.authService.isAdmin();
-
-    this.cartService.getCartItems().subscribe(items => {
-      this.cartItemCount = this.cartService.getTotalItems();
-    });
-  }
+  this.cartService.getCartItems().subscribe(() => {
+    this.cartItemCount = this.cartService.getTotalItems();
+  });
+}
 
 
-  redirectManagement() : void {
+
+redirectManagement() : void {
     this.router.navigate(['management']); 
   }
   redirectToCatalog() : void {
