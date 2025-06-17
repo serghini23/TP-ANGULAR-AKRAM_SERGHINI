@@ -266,6 +266,29 @@ app.post('/api/products/reduce-stock', (req, res) => {
 
   res.status(200).send({ message: 'Stock updated successfully' });
 });
+// Add new product
+app.post('/api/products', (req, res) => {
+  const newProduct = req.body;
+
+  // Optional: check if productID is unique
+  if (products.find(p => p.productID === newProduct.productID)) {
+    return res.status(400).send({ message: "Product ID already exists" });
+  }
+
+  products.push(newProduct);
+  res.status(201).send(newProduct);
+});
+
+// Delete product by id
+app.delete('/api/products/:id', (req, res) => {
+  const id = req.params.id;
+  const index = products.findIndex(p => p.productID === id);
+  if (index === -1) {
+    return res.status(404).send({ message: "Product not found" });
+  }
+  products.splice(index, 1);
+  res.send({ message: "Product deleted" });
+});
 
 
 // ----------- CART API -----------

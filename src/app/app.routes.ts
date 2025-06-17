@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ManagementComponent } from './components/management/management.component';
 
 export const routes: Routes = [
     {path: 'catalogue', component: CatalogComponent},
@@ -19,4 +20,5 @@ export const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path : 'cart', component :CartComponent} ,
     { path: 'checkout', component: CheckoutComponent},
+    {path: 'management',component: ManagementComponent}
 ];

@@ -56,4 +56,11 @@ export class CatalogService {
     }
     return price;
   }
+  deleteProduct(productId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${productId}`);
+  }
+  addProduct(product: Product): Observable<Product> {
+  return this.http.post<Product>(this.apiUrl, product);
+}
+
 }

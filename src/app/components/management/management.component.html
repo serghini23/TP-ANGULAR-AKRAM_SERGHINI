@@ -1,0 +1,12 @@
+<div class="management-container">
+  <div *ngFor="let product of products" class="product-item">
+    <div class="product-info">
+      {{ product.productTitle }} - {{ product.productPrice | currency }}
+    </div>
+    <button (click)="deleteProduct(product.productID)">Delete</button>
+  </div>
+
+  <div class="add-product-container">
+    <button (click)="addProduct()">Add New Product</button>
+  </div>
+</div>

@@ -36,7 +36,12 @@ signIn() {
     next: (res: any) => {
       this.authService.login(res.user); 
       this.message = '✅ Login réussi : ' + res.user.firstName;
-      this.router.navigate(['/login-success']);
+      if(res.user.userType === 'Admin') {
+  this.router.navigate(['/management']);
+} else {
+this.router.navigate(['/login-success']);}
+
+      
     },
     error: () => {
       this.message = '❌ Email ou mot de passe incorrect';

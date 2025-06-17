@@ -25,5 +25,9 @@ export class AutheService {
     const userJson = localStorage.getItem(this.userKey);
     return userJson ? JSON.parse(userJson) : null;
   }
+  isAdmin(): boolean {
+    const user = this.getUser();
+    return user?.userType === 'Admin';
+  }
 }
 
