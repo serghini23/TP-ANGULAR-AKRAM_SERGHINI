@@ -5,7 +5,7 @@ import { UsersListesComponent } from './components/users-listes/users-listes.com
 import { LoginComponent } from './components/login/login.component';
 import { LoginSuccessComponent } from './components/login-success/login-success.component';
 import { RegisterComponent } from './components/register/register.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ManagementComponent } from './components/management/management.component';
