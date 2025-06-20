@@ -18,9 +18,20 @@ Fully responsive layout
 
 🧰 Tech Stack:
 Frontend: Angular, TypeScript, HTML, CSS
-
 Backend: Express 
+
 🛠️ Installation & Running Locally:
+1️⃣ Clone the repository : git clone https://github.com/serghini23/TP-ANGULAR-AKRAM_SERGHINI.git    
+then : cd TP-ANGULAR-AKRAM_SERGHINI
+
+2️⃣ Start the Angular Frontend
+npm install
+ng serve
+
+3️⃣ Start the Express Backend (Mock API)
+cd .\api-server\
+npm install
+npm start
 
 
 
