@@ -1,0 +1,33 @@
+<form (ngSubmit)="submitForm()">
+  <label>
+    Card Holder:
+    <input [(ngModel)]="card.cardHolder" name="cardHolder" required />
+  </label>
+
+  <label>
+    Card Number:
+    <input 
+      [(ngModel)]="card.cardNumber" 
+      (input)="detectCardType()" 
+      name="cardNumber" 
+      required 
+      maxlength="19" 
+      placeholder="1234 5678 9012 3456" />
+  </label>
+
+  <div *ngIf="cardType">
+    <img [src]="'assets/cards/' + cardType + '.png'" alt="{{ cardType }}" />
+  </div>
+
+  <label>
+    Expiry:
+    <input [(ngModel)]="card.expiry" name="expiry" placeholder="MM/YY" required />
+  </label>
+
+  <label>
+    CVV:
+    <input [(ngModel)]="card.cvv" name="cvv" required maxlength="4" />
+  </label>
+
+  <button type="submit" (click)="redirectToThanks()">Checkout</button>
+</form>

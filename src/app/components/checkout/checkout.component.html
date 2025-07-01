@@ -28,7 +28,7 @@
     Some items exceed available stock. Please adjust quantities.
   </div>
 
-  <button (click)="proceedToCheckout()" [disabled]="hasStockIssues()">Confirm Purchase</button>
+  <button (click)="redirectToCardform()" [disabled]="hasStockIssues()">Confirm Purchase</button>
 </div>
 
 <div *ngIf="cartItems.length === 0">

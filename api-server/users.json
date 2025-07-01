@@ -13,7 +13,7 @@
     "lastName": "serghini",
     "email": "akram@mail.com",
     "password": "akram123",
-    "userType": "Membre"
+    "userType": "Admin"
   },
   {
     "userId": 3,

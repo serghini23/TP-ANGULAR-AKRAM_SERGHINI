@@ -75,5 +75,13 @@ this.stockMap[items[index].productID] = product ? product.productQuantity : 0;
 hasStockIssues(): boolean {
   return this.cartItems.some(item => item.productQuantity > this.getStock(item.productID));
 }
+redirectToCardform(): void {
+  if (this.hasStockIssues()) {
+    alert('Some items exceed available stock. Please adjust quantities.');
+    return;
+  }
+  this.router.navigate(['/pay']);   
 
+
+}
 }
